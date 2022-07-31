@@ -13,6 +13,7 @@ def login_view(request):
             # A backend authenticated the credentials
             print('인증성공')
             login(request, user)
+            return redirect('home:index')
         else:
             # No backend authenticated the credentials
             print('인증실패')
@@ -44,15 +45,19 @@ def signup_view(request):
         elif User.objects.filter(email=email).exists():
             return render(request, 'users/signup.html', {'content':'이미 사용중인 이메일입니다.'})
         
-        if username and email and password and firstname and lastname and int(age)>0:
-            user = User.objects.create_user(username, email, password)
-            user.first_name = firstname
-            user.last_name = lastname
-            user.age = age
-
+        if username and email and password and firstname and lastname and age:
+            print(username)
+            print(email)
+            print(password)
+            print(firstname)
+            print(lastname)
+            print('age: ', age)
+            
+            user = User.objects.create_user(username, email, password, first_name=firstname, last_name=lastname, age=age)
             user.save()
+            
             login(request, user)
-            return redirect('users:login')
+            return redirect('home:index')
         else:
             print(request.POST)
             return render(request, 'users/signup.html', {'content':'양식을 제대로 입력하세요'})
