@@ -1,0 +1,21 @@
+<p>회원가입 페이지</p>
+<p>{{ content }}</p>
+<form action="" method="POST">
+    {% csrf_token %}
+    <p>아이디</p>
+    <input name='username' type="text" autocomplete="off">
+    <p>비밀번호</p>
+    <input name='password' type="password" autocomplete="off">
+    <p>이름</p>
+    <input name='firstname' type="text" autocomplete="off">
+    <p>성</p>
+    <input name='lastname' type="text" autocomplete="off">
+    <p>이메일</p>
+    <input name='email' type="email" autocomplete="off">
+    <p>나이</p>
+    <input name='age' type="number" autocomplete="off">
+    
+    <input type="submit" value="회원가입">
+    
+
+</form>
