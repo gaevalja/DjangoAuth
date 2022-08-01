@@ -1,6 +1,6 @@
-<a href="{% url 'home:index' %}">Go To Home</a>
-<p>회원가입 페이지</p>
-<p>{{ content }}</p>
+<h2><a href="{% url 'home:index' %}">Go To Home</a></h2>
+<h2>회원가입 페이지</h2>
+<p style="color:red">{{ content }}</p>
 <form action="" method="POST">
     {% csrf_token %}
     <p>아이디</p>

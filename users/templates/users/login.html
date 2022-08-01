@@ -1,7 +1,7 @@
-<a href="{% url 'home:index' %}">Go To Home</a>
-<p>로그인 페이지</p>
+<h2><a href="{% url 'home:index' %}">Go To Home</a></h2>
+<h2>로그인 페이지</h2>
 
-{{ content }}
+<p style="color:red">{{ content }}</p>
 <form action="" method="POST">
     {% csrf_token %}
     <p>아이디</p>

@@ -1,0 +1,15 @@
+{% if user.is_authenticated and user.id == request.user.id %}
+    <h2><a href="{% url 'home:index' %}">Go To Home</a></h2>
+    <h2><a href="{% url 'profile:profile_index' user.id %}">{{ user.username }}</a>님의 프로필</h2>
+    <a href="{% url 'users:logout' %}">로그아웃</a>
+    <ol>
+        <li>아이디 : {{ user.username }}</li>
+        <li>비밀번호(Hashed) : {{ user.password }}</li>
+        <li>이메일 : {{ user.email }}</li>
+        <li>이름 : {{ user.first_name }} {{ user.last_name }}</li>
+        <li>나이 : {{ user.age }}</li>
+    </ol>
+{% else %}
+<h2><a href="{% url 'home:index' %}">Go To Home</a></h2>
+요청실패ㅋㅋㄹㅃㅃ
+{% endif %}
