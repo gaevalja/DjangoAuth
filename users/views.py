@@ -26,7 +26,7 @@ def login_view(request):
 
 def logout_view(request):
     logout(request)
-    return redirect('users:login')
+    return redirect('home:index')
 
 def signup_view(request):
     if request.method == 'POST':
@@ -55,7 +55,6 @@ def signup_view(request):
             
             user = User.objects.create_user(username, email, password, first_name=firstname, last_name=lastname, age=age)
             user.save()
-            
             login(request, user)
             return redirect('home:index')
         else:

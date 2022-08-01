@@ -4,17 +4,17 @@
 <form action="" method="POST">
     {% csrf_token %}
     <p>아이디</p>
-    <input name='username' type="text" autocomplete="off">
+    <input name='username' type="text" autocomplete="off" placeholder="id">
     <p>비밀번호</p>
-    <input name='password' type="password" autocomplete="off">
+    <input name='password' type="password" autocomplete="off" placeholder="password">
     <p>이름</p>
-    <input name='firstname' type="text" autocomplete="off">
+    <input name='firstname' type="text" autocomplete="off" placeholder="fisrtname">
     <p>성</p>
-    <input name='lastname' type="text" autocomplete="off">
+    <input name='lastname' type="text" autocomplete="off" placeholder="lastname">
     <p>이메일</p>
-    <input name='email' type="email" autocomplete="off">
+    <input name='email' type="email" autocomplete="off" placeholder="email">
     <p>나이</p>
-    <input name='age' type="number" autocomplete="off" min="1" max="100" step="1">
+    <input name='age' type="number" autocomplete="off" min="1" max="100" step="1" placeholder="age" value="20">
     
     <input type="submit" value="회원가입">
     
