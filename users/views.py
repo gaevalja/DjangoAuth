@@ -22,7 +22,11 @@ def login_view(request):
             else:
                 content = '비밀번호를 확인해주세요'
             return render(request, 'users/login.html', {'content':content})
-    return render(request, 'users/login.html')
+    else:
+        if request.user.is_authenticated:
+            return redirect('home:index')
+        else:
+            return render(request, 'users/login.html')
 
 def logout_view(request):
     logout(request)
@@ -46,18 +50,17 @@ def signup_view(request):
             return render(request, 'users/signup.html', {'content':'이미 사용중인 이메일입니다.'})
         
         if username and email and password and firstname and lastname and age:
-            print(username)
-            print(email)
-            print(password)
-            print(firstname)
-            print(lastname)
-            print('age: ', age)
-            
             user = User.objects.create_user(username, email, password, first_name=firstname, last_name=lastname, age=age)
             user.save()
             login(request, user)
+            
             return redirect('home:index')
         else:
             print(request.POST)
+            
             return render(request, 'users/signup.html', {'content':'양식을 제대로 입력하세요'})
-    return render(request, 'users/signup.html')
+    else:
+        if request.user.is_authenticated:
+            return redirect('home:index')
+        else:
+            return render(request, 'users/signup.html')

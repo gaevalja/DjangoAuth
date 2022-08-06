@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'users',
     'home',
     'user_profile',
+    'myadmin',
 ]
 
 MIDDLEWARE = [

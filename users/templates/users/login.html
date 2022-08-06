@@ -1,5 +1,8 @@
-<h2><a href="{% url 'home:index' %}">Go To Home</a></h2>
-<h2>로그인 페이지</h2>
+{% extends 'base.html' %}
+{% block pagename %}Login Page{% endblock pagename %}
+{% block userbar %}<a href="{% url 'users:signup' %}">회원가입</a>{% endblock userbar %}
+
+{% block not_authenticated %}
 
 <p style="color:red">{{ content }}</p>
 <form action="" method="POST">
@@ -11,8 +14,5 @@
     <p></p>
     <input type="submit" value="login">
 </form>
-<a href="{% url 'users:signup' %}">회원가입</a>
 
-
-
-
+{% endblock not_authenticated %}

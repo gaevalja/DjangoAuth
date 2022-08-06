@@ -1,4 +1,29 @@
-{% if user.is_authenticated and user.id == request.user.id %}
+{% extends 'base.html' %}
+
+{% block pagename %}{{ user.username }}'s Profile{% endblock pagename %}
+{% block userbar %}
+    {% if user.is_authenticated %}
+        <a href="{% url 'profile:profile_index' user.id %}">{{ user.username }}</a>님 반갑습니다. <a href="{% url 'users:logout' %}">로그아웃</a>
+    {% endif %}
+{% endblock userbar %}
+
+
+{% block authenticated %}
+<ol>
+    <li>아이디 : {{ user.username }}</li>
+    <li>비밀번호(Hashed) : {{ user.password }}</li>
+    <li>이메일 : {{ user.email }}</li>
+    <li>이름 : {{ user.first_name }} {{ user.last_name }}</li>
+    <li>나이 : {{ user.age }}</li>
+    <li>관리자 여부: {{ user.is_superuser }}</li>
+</ol>
+{% endblock authenticated %}
+
+
+
+
+
+<!-- {% if user.is_authenticated and user.id == request.user.id %}
     <h2><a href="{% url 'home:index' %}">Go To Home</a></h2>
     <h2><a href="{% url 'profile:profile_index' user.id %}">{{ user.username }}</a>님의 프로필</h2>
     <a href="{% url 'users:logout' %}">로그아웃</a>
@@ -12,4 +37,4 @@
 {% else %}
 <h2><a href="{% url 'home:index' %}">Go To Home</a></h2>
 요청실패ㅋㅋㄹㅃㅃ
-{% endif %}
+{% endif %} -->

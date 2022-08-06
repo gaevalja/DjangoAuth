@@ -1,5 +1,8 @@
-<h2><a href="{% url 'home:index' %}">Go To Home</a></h2>
-<h2>회원가입 페이지</h2>
+{% extends 'base.html' %}
+{% block pagename %}SignUp Page{% endblock pagename%}
+{% block userbar %}<a href="{% url 'users:login' %}">로그인</a>{% endblock userbar %}
+
+{% block not_authenticated %}
 <p style="color:red">{{ content }}</p>
 <form action="" method="POST">
     {% csrf_token %}
@@ -17,6 +20,5 @@
     <input name='age' type="number" autocomplete="off" min="1" max="100" step="1" placeholder="age" value="20">
     
     <input type="submit" value="회원가입">
-    
-
 </form>
+{% endblock not_authenticated %}
