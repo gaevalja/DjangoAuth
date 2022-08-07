@@ -12,9 +12,10 @@
 
 {% if user.is_authenticated %}
 {% block authenticated %}
-    {% if user.is_superuser %}당신은 관리자니까 <a href="{% url 'myadmin:announcements' %}">여기</a>로 가서 공지사항을 관리할수 있어
-    {% else %}당신은 관리자가 아니니까 myadmin링크를 주지 않을거야
+    {% if user.is_superuser %}당신은 관리자니까 <a href="{% url 'myadmin:admin_announcements' %}">여기</a>에서 공지사항을 생성할 수 있어<p>
+    {% else %}당신은 관리자가 아니니까 myadmin링크를 주지 않을거야<p>
     {% endif %}
+    <a href="{% url 'home:announcements' %}">공지사항 목록보기</a>
 {% endblock authenticated %}
 
 
